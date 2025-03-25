@@ -15,7 +15,9 @@ const FEED_URLS: { [key: string]: string } = {
 };
 
 export async function GET(request: NextRequest, { params }: { params: { feed: string }}) {
-  const { feed } = params;
+  const feed = params.feed as string;
+
+  
   const feedUrl = FEED_URLS[feed];
   if (!feedUrl) {
     return NextResponse.json({ error: 'Invalid feed specified' }, { status: 400 });
