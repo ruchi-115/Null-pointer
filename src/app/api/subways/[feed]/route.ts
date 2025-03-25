@@ -14,8 +14,12 @@ const FEED_URLS: { [key: string]: string } = {
   si: 'https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si',
 };
 
-export async function GET(request: NextRequest, { params }: { params: { feed: string }}) {
-  const feed = params.feed as string;
+// export async function GET(request: NextRequest, { params }: { params: { feed: string }}) {
+//   const feed = params.feed as string;
+export async function GET(request: NextRequest, { params }: any) {
+  const { feed } = params;
+
+
 
   
   const feedUrl = FEED_URLS[feed];
